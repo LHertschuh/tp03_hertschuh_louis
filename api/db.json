@@ -1,0 +1,31 @@
+{
+  "pollutions": [
+    {
+      "id": 1,
+      "type": "Pollution de l'air",
+      "localisation": "Paris, 75001",
+      "description": "Émissions importantes de particules fines",
+      "gravite": "Élevée",
+      "date": "2025-10-15",
+      "statut": "En cours"
+    },
+    {
+      "id": 2,
+      "type": "Pollution de l'eau",
+      "localisation": "Lyon, 69000",
+      "description": "Déversement de produits chimiques dans la rivière",
+      "gravite": "Critique",
+      "date": "2025-10-20",
+      "statut": "Signalée"
+    },
+    {
+      "id": 3,
+      "type": "Pollution sonore",
+      "localisation": "Marseille, 13000",
+      "description": "Nuisances sonores nocturnes",
+      "gravite": "Moyenne",
+      "date": "2025-10-18",
+      "statut": "Résolue"
+    }
+  ]
+}
