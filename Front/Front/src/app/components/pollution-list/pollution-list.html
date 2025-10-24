@@ -1,0 +1,83 @@
+<div class="container">
+  <h1>Gestion des Pollutions</h1>
+  
+  <div class="actions">
+    <button routerLink="/pollutions/new" class="btn btn-primary">
+      ➕ Signaler une nouvelle pollution
+    </button>
+  </div>
+
+  <!-- Filtres -->
+  <div class="filters">
+    <h3>Filtrer les pollutions</h3>
+    
+    <div class="filter-group">
+      <label>Type :</label>
+      <select [(ngModel)]="filterType" (change)="applyFilters()">
+        <option value="">Tous</option>
+        <option value="Pollution de l'air">Pollution de l'air</option>
+        <option value="Pollution de l'eau">Pollution de l'eau</option>
+        <option value="Pollution sonore">Pollution sonore</option>
+        <option value="Pollution des sols">Pollution des sols</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Gravité :</label>
+      <select [(ngModel)]="filterGravite" (change)="applyFilters()">
+        <option value="">Toutes</option>
+        <option value="Faible">Faible</option>
+        <option value="Moyenne">Moyenne</option>
+        <option value="Élevée">Élevée</option>
+        <option value="Critique">Critique</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Statut :</label>
+      <select [(ngModel)]="filterStatut" (change)="applyFilters()">
+        <option value="">Tous</option>
+        <option value="Signalée">Signalée</option>
+        <option value="En cours">En cours</option>
+        <option value="Résolue">Résolue</option>
+      </select>
+    </div>
+
+    <button (click)="resetFilters()" class="btn btn-secondary">
+      Réinitialiser les filtres
+    </button>
+  </div>
+
+  <!-- Liste des pollutions -->
+  <div class="pollution-list">
+    <div *ngIf="filteredPollutions.length === 0" class="no-results">
+      Aucune pollution trouvée.
+    </div>
+
+    <div *ngFor="let pollution of filteredPollutions" class="pollution-card">
+      <div class="pollution-header">
+        <h3>{{ pollution.type }}</h3>
+        <span class="badge" [ngClass]="'badge-' + pollution.gravite.toLowerCase()">
+          {{ pollution.gravite }}
+        </span>
+      </div>
+      
+      <p><strong>Localisation :</strong> {{ pollution.localisation }}</p>
+      <p><strong>Date :</strong> {{ pollution.date }}</p>
+      <p><strong>Statut :</strong> {{ pollution.statut }}</p>
+      <p class="description">{{ pollution.description }}</p>
+      
+      <div class="card-actions">
+        <button [routerLink]="['/pollutions', pollution.id]" class="btn btn-info">
+          👁️ Voir détails
+        </button>
+        <button [routerLink]="['/pollutions', pollution.id, 'edit']" class="btn btn-warning">
+          ✏️ Modifier
+        </button>
+        <button (click)="deletePollution(pollution.id)" class="btn btn-danger">
+          🗑️ Supprimer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

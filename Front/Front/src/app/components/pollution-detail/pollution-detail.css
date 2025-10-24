@@ -1,0 +1,107 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.detail-header h2 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.badge-faible { background: #d4edda; color: #155724; }
+.badge-moyenne { background: #fff3cd; color: #856404; }
+.badge-élevée { background: #f8d7da; color: #721c24; }
+.badge-critique { background: #f5c6cb; color: #721c24; }
+
+.detail-section {
+  margin-bottom: 25px;
+}
+
+.detail-section h3 {
+  color: #495057;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.detail-section p {
+  color: #212529;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.status {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.status-signalée { background: #fff3cd; color: #856404; }
+.status-en-cours { background: #cce5ff; color: #004085; }
+.status-résolue { background: #d4edda; color: #155724; }
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #545b62;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: #333;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}

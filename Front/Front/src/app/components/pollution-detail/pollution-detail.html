@@ -1,0 +1,52 @@
+<div class="container">
+  <div *ngIf="loading" class="loading">Chargement...</div>
+  
+  <div *ngIf="!loading && pollution" class="detail-card">
+    <h1>Détail de la Pollution</h1>
+    
+    <div class="detail-header">
+      <h2>{{ pollution.type }}</h2>
+      <span class="badge" [ngClass]="'badge-' + pollution.gravite.toLowerCase()">
+        {{ pollution.gravite }}
+      </span>
+    </div>
+
+
+    <div class="detail-section">
+      <h3>📍 Localisation</h3>
+      <p>{{ pollution.localisation }}</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>📅 Date de signalement</h3>
+      <p>{{ pollution.date }}</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>📊 Statut</h3>
+      <p class="status" 
+   [ngClass]="'status-' + (pollution.statut.toLowerCase().replace(' ', '-') || '')">
+  {{ pollution.statut }}
+</p>
+
+    </div>
+
+    <div class="detail-section">
+      <h3>📝 Description</h3>
+      <p>{{ pollution.description }}</p>
+    </div>
+
+    <div class="actions">
+      <button routerLink="/pollutions" class="btn btn-secondary">
+        ← Retour à la liste
+      </button>
+      <button [routerLink]="['/pollutions', pollution.id, 'edit']" class="btn btn-warning">
+        ✏️ Modifier
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && !pollution" class="error">
+    Pollution non trouvée.
+  </div>
+</div>

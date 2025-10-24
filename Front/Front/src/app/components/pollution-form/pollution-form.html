@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>{{ isEditMode ? 'Modifier une pollution' : 'Signaler une nouvelle pollution' }}</h1>
+
+  <form (ngSubmit)="onSubmit()" #pollutionForm="ngForm" class="form">
+    <div class="form-group">
+      <label for="type">Type de pollution *</label>
+      <select id="type" name="type" [(ngModel)]="pollution.type" required class="form-control">
+        <option value="">Sélectionner un type</option>
+        <option value="Pollution de l'air">Pollution de l'air</option>
+        <option value="Pollution de l'eau">Pollution de l'eau</option>
+        <option value="Pollution sonore">Pollution sonore</option>
+        <option value="Pollution des sols">Pollution des sols</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="localisation">Localisation *</label>
+      <input 
+        type="text" 
+        id="localisation" 
+        name="localisation" 
+        [(ngModel)]="pollution.localisation" 
+        required 
+        class="form-control"
+        placeholder="ex: Paris, 75001"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description *</label>
+      <textarea 
+        id="description" 
+        name="description" 
+        [(ngModel)]="pollution.description" 
+        required 
+        rows="4"
+        class="form-control"
+        placeholder="Décrivez la pollution observée..."
+      ></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="gravite">Gravité *</label>
+        <select id="gravite" name="gravite" [(ngModel)]="pollution.gravite" required class="form-control">
+          <option value="Faible">Faible</option>
+          <option value="Moyenne">Moyenne</option>
+          <option value="Élevée">Élevée</option>
+          <option value="Critique">Critique</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="statut">Statut *</label>
+        <select id="statut" name="statut" [(ngModel)]="pollution.statut" required class="form-control">
+          <option value="Signalée">Signalée</option>
+          <option value="En cours">En cours</option>
+          <option value="Résolue">Résolue</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date *</label>
+      <input 
+        type="date" 
+        id="date" 
+        name="date" 
+        [(ngModel)]="pollution.date" 
+        required 
+        class="form-control"
+      >
+    </div>
+
+    <div class="form-actions">
+<button type="submit" [disabled]="!pollutionForm.form.valid" class="btn btn-primary">
+{{ isEditMode ? '💾 Enregistrer' : '➕ Ajouter' }}
+</button>
+<button type="button" routerLink="/pollutions" class="btn btn-secondary">
+❌ Annuler
+</button>
+</div>
+  </form>
+</div>
